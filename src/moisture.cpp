@@ -1,5 +1,6 @@
 #include "moisture.h"
 #include <algorithm>
+#include <iterator>
 
 MoistureSensor::MoistureSensor() : readIndex(0), total(0), average(0) {
     std::fill(std::begin(readings), std::end(readings), 0);
