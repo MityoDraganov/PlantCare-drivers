@@ -1,5 +1,4 @@
 #include "moisture.h"
-#include "driver/adc.h"
 #include <algorithm>
 #include <iterator>
 
@@ -8,13 +7,8 @@ MoistureSensor::MoistureSensor() : readIndex(0), total(0), average(0) {
 }
 
 void MoistureSensor::init() {
-    esp_adc_oneshot_config_t config = {
-        .mode = ADC1_MODE,
-        .channel = ADC_CHANNEL,
-        .bitwidth = ADC_WIDTH_BIT_12,
-        .atten = ADC_ATTEN_DB_0
-    };
-    esp_adc_oneshot_new(&config, &adc_handle);
+    adc1_config_width(ADC_WIDTH_BIT_12);
+    adc1_config_channel_atten(ADC_CHANNEL, ADC_ATTEN_DB_0);
 
     for (int i = 0; i < NUM_READINGS; i++) {
         readings[i] = readADC();
@@ -36,7 +30,5 @@ int MoistureSensor::readMoistureLevel() {
 }
 
 int MoistureSensor::readADC() {
-    int raw = 0;
-    esp_adc_oneshot_read(adc_handle, &raw);
-    return raw;
+    return adc1_get_raw(ADC_CHANNEL);
 }
