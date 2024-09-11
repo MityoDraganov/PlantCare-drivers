@@ -1,6 +1,5 @@
 #include "MoistureSensor.h"
 #include <algorithm>
-#include "esp_adc/adc_oneshot.h"
 
 MoistureSensor::MoistureSensor() : readIndex(0), total(0), average(0) {
     std::fill(std::begin(readings), std::end(readings), 0);
