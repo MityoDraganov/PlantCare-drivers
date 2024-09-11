@@ -1,4 +1,4 @@
-#include "MoistureSensor.h"
+#include "moisture.h"
 #include <algorithm>
 
 MoistureSensor::MoistureSensor() : readIndex(0), total(0), average(0) {

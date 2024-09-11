@@ -1,7 +1,5 @@
-#ifndef MOISTURE_SENSOR_H
-#define MOISTURE_SENSOR_H
-
-#include <driver/adc.h>
+#ifndef MOISTURE_H
+#define MOISTURE_H
 
 class MoistureSensor {
 public:
