@@ -1,4 +1,5 @@
 #include "moisture.h"
+#include "driver/adc.h"
 #include <algorithm>
 #include <iterator>
 
